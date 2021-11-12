@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200;300;400;500;700;800&display=swap');
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.background {
+    background-color: #e8e8f0;
+}
+
+.padding {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+}
+
+.middle {
+    text-align: center;
+}
+
+.contact {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 2%;
+    color: #46474b;
+}
+
+.heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #46474b;
+    padding-top: 5%;
+}
+
+@media screen and (max-width: 600px) {
+    .heading {
+        font-size: 2rem;
+    }
+}
+
+.heading::before {
+    content: "\00a0\00a0\00a0 ";
+    text-decoration: line-through;
+    color: #46474b;
+    text-decoration-thickness: 2px;
+}
+
+.heading::after {
+    content: "\00a0\00a0\00a0";
+    text-decoration: line-through;
+    color: #46474b;
+    text-decoration-thickness: 2px;
+}
+
+
+/* Icons */
+
+.fa-github,
+.fa-linkedin,
+.fa-envelope {
+    color: #46474b;
+    font-size: 2em;
+}
+
+.fa-github:hover,
+.fa-linkedin:hover,
+.fa-envelope:hover {
+    color: #e8e8f0;
+    font-size: 2em;
+}
+
+.card:hover {
+    background-color: #46474b !important;
+    color: #e8e8f0 !important;
+}
+
+.btn:hover {
+    background-color: #e8e8f0;
+    color: #46474b;
+}
+
+.card {
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.card-title {
+    margin-top: 1rem;
+}
+
+.card-text {
+    text-align: left;
+}
