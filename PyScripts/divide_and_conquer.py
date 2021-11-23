@@ -1,24 +1,21 @@
 from random import randrange, seed
 from datetime import datetime
 seed(datetime.now())
+import math
 
-def rand_num():
-    return randrange(1,10)
+def rand_num(i,j):
+    return randrange(i,j)
 
-def guess_socks(correct, guess, wrong_answers):
-    while wrong_answers < 4:
+def guess_socks(correct, guess, wrong_answers, max):
+    if wrong_answers < max:
         if guess == correct:
-            print("That's right! It's", correct)
-            break
+            return "You are correct! It was {}".format(correct), wrong_answers
         else:
-            print("That's wrong!")
-            if guess>correct:
-                print("Too High!")
-            elif guess<correct:
-                print("Too low!")
-            wrong_answers += 1
-    else:
-        print("It's" , correct)
+            if wrong_answers == max:
+                return  "Game over. The correct answer was {}. Press Restart to play again".format(correct), wrong_answers
 
-    return wrong_answers
+            if guess>correct:
+                return "Your guess was too high. You have {} more tries".format(math.ceil(max) - wrong_answers), wrong_answers + 1
+            elif guess<correct:
+                return "Your guess was too low. You have {} more tries".format(math.ceil(max)), wrong_answers + 1
 

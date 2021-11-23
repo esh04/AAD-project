@@ -1,28 +1,41 @@
 {% extends "base.html" %} {% block content %}
-
 <div class="container my-2" style="margin-bottom: auto; margin-top: auto">
     <div class="row mt-2">
         <div class="col">
             <h1>Which is the smelly sock?</h1>
         </div>
     </div>
-    <div class="row card-group mt-2 d-flex justify-content-center">
-        {% for i in range(1,11) %}
-        <div class="col-sm-6 col-md-4 col-lg-3 my-3 d-flex justify-content-center">
-            <input class="form-check-input hidden" type="radio" value={{i}} name="sock" id={{i}} />
-            <label class="form-check-label movie" for={{i}}>
-            <div class="card">
-                <!-- Add a default movie poster for movies which dont have one -->
-                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5vCa-Cb3pQruDmw4NoBFH2eGwSXgPT7z2A&usqp=CAU" alt="socks" />
-                <div class="card-body">
-                    <h6 class="card-text font-weight-bold">
-                        {{i}}
-                    </h6>
-                </div>
+    <p>{{session["text"]}}</p>
+    <form method="GET" action="{{ url_for('divide_and_conquer') }}">
+        <button type="submit" class="btn btn-primary">Restart</button>
+    </form>
+
+
+    <form method="POST" action="{{ url_for('divide_and_conquer') }}">
+        <div class="row my-5">
+            <div class="col">
+
+                {% if session["wrong_answers"] >= session["max_tries"] or session["guess"] == session["num"] %}
+                <button disabled type="submit" name="guess" value="guess" class="btn btn-primary">Guess</button> {% else %}
+
+                <button type="submit" name="guess" value="guess" class="btn btn-primary">Guess</button> {% endif %}
+
             </div>
-            </label>
         </div>
-        {% endfor %}
-    </div>
+
+        <div class="row card-group mt-2 d-flex justify-content-center">
+            {% for i in range(1,session["total_socks"]+1) %}
+            <div class="col-sm-3 col-md-2 col-lg-1 my-1 d-flex justify-content-center">
+                <input class="form-check-input hidden" type="radio" value={{i}} name="sock" id={{i}} />
+                <div class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5vCa-Cb3pQruDmw4NoBFH2eGwSXgPT7z2A&usqp=CAU" alt="socks" />
+
+                </div>
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+
+    </form>
 </div>
 {% endblock %}
