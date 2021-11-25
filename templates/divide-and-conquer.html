@@ -1,19 +1,42 @@
 {% extends "base.html" %} {% block content %}
-<div class="container my-2" style="margin-bottom: auto; margin-top: auto">
+<div class="bg" style="margin-bottom: auto; margin-top: auto">
     <div class="row mt-2">
-        <div class="col">
-            <h1>Which is the smelly sock?</h1>
+        <div class="col  middle">
+            <p class="game-heading">Which is the smelly sock?</p>
+            <p class="font">A pair of dirty socks have accidently been wrapped in one of the presents that Santa is about to deliver, you need to figure out which one to avoid a child getting a nasty surprise. You will get a prompt after every guess to help you find
+                the smeling sock. Best of Luck! </br> Every time you restart the game, the number of socks and number of tries will change.</p>
         </div>
-    </div>
-    <p>{{session["text"]}}</p>
-    <form method="GET" action="{{ url_for('divide_and_conquer') }}">
-        <button type="submit" class="btn btn-primary">Restart</button>
-    </form>
 
+    </div>
+    <div class="middle">
+        <p class="font">{{session["text"]}}</p>
+        <form method="GET" action="{{ url_for('divide_and_conquer') }}">
+            <button type="submit" class="btn btn-primary ">Restart</button>
+        </form>
+    </div>
 
     <form method="POST" action="{{ url_for('divide_and_conquer') }}">
+
+        <div class="row card-group mt-2 d-flex justify-content-center">
+            {% for i in range(1,session["total_socks"]+1) %}
+            <div class="col-sm-3 col-md-2 col-lg-1 my-1 d-flex justify-content-center">
+                <input class="form-check-input hidden" type="radio" value={{i}} name="sock" id={{i}} />
+                <label class="form-check-label sock" for="{{i}}">
+                <div class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5vCa-Cb3pQruDmw4NoBFH2eGwSXgPT7z2A&usqp=CAU" alt="socks" />
+
+                </div>
+                <div class="card-body">
+                    <h6 class="card-text font-weight-bold font">
+                      {{i}}
+                    </h6>
+                  </div>
+                </label>
+            </div>
+            {% endfor %}
+        </div>
         <div class="row my-5">
-            <div class="col">
+            <div class="col middle">
 
                 {% if session["wrong_answers"] >= session["max_tries"] or session["guess"] == session["num"] %}
                 <button disabled type="submit" name="guess" value="guess" class="btn btn-primary">Guess</button> {% else %}
@@ -22,20 +45,6 @@
 
             </div>
         </div>
-
-        <div class="row card-group mt-2 d-flex justify-content-center">
-            {% for i in range(1,session["total_socks"]+1) %}
-            <div class="col-sm-3 col-md-2 col-lg-1 my-1 d-flex justify-content-center">
-                <input class="form-check-input hidden" type="radio" value={{i}} name="sock" id={{i}} />
-                <div class="card">
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5vCa-Cb3pQruDmw4NoBFH2eGwSXgPT7z2A&usqp=CAU" alt="socks" />
-
-                </div>
-                </label>
-            </div>
-            {% endfor %}
-        </div>
-
     </form>
 </div>
 {% endblock %}

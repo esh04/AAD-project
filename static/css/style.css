@@ -18,6 +18,11 @@ html {
     text-align: center;
 }
 
+.right {
+    text-align: right;
+    display: flex;
+}
+
 .contact {
     padding-right: 10%;
     padding-left: 10%;
@@ -91,4 +96,49 @@ html {
 
 .card-text {
     text-align: left;
+}
+
+
+/* Divide and Conquer*/
+
+.hidden {
+    visibility: hidden;
+}
+
+input[type="radio"]:checked+label.sock {
+    opacity: 0.3;
+    /* border: 0.4rem solid blue; */
+}
+
+.bg {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-image: url("./pictures/divide-and-conquer-bg.jpg");
+    background-size: cover;
+    /* background-color: rgb(255, 184, 175); */
+    min-height: 100vh;
+}
+
+.font {
+    font-size: 1.2rem;
+    /* color: #46474b; */
+    color: whitesmoke;
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'times new roman', serif;
+}
+
+.game-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    /* color: #46474b; */
+    color: whitesmoke;
+}
+
+@media screen and (max-width: 600px) {
+    .game-heading {
+        font-size: 2rem;
+    }
 }
