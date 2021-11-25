@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+
+<div style="margin-bottom: auto; margin-top: auto">
+    <div class="row mt-2">
+
+        <div class="col middle">
+
+            <p class="game-heading">N Queens Problem</p>
+            <p class="font"> You must place {{N}} chess queens on an {{N}}x{{N}} chessboard such that no two queens attack each other. Best of Luck! </br> Note: Every time you restart the game, the dimensions of the chessboard will change.</br>To know how the queen moves,
+                click <a href="https://www.chess.com/terms/chess-queen" target="_blank">here</a></p>
+
+        </div>
+
+    </div>
+    <div class=" col middle">
+        <p class="font">{{text}}</p>
+        <div class="row">
+            <div class="col">
+                <form method="GET" action="{{ url_for('home') }}">
+                    <button type="submit" class="btn btn-primary ">Back</button>
+                </form>
+            </div>
+            <div class="col">
+                <form method="GET" action="{{ url_for('n_queens') }}">
+                    <button type="submit" class="btn btn-primary ">Restart</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col middle">
+        <form method="POST" action="{{ url_for('n_queens') }}">
+            <div class="row my-5">
+                <div class="col middle">
+
+                    <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button> {% if hint == '' %}
+                    <button type="submit" name="hint" value="hint" class="btn btn-primary">Hint</button> {% else %}
+                    <button disabled type="submit" name="hint" value="hint" class="btn btn-primary">Hint</button>
+
+                    <p class="font">
+                        </br>{{hint}} Click
+                        <a href="https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/" target="_blank">here</a> to get the exact solution.
+
+                        </br>Click
+                        <a href="https://www.geeksforgeeks.org/backtracking-introduction/" target="_blank">here</a> for learning more about Backtracking.{% endif %}
+
+
+
+                    </p>
+                </div>
+            </div>
+
+            <table class="chess-board center">
+                <tbody>
+                    {% for j in range(0,N) %}
+                    <tr>
+                        {% for i in range(0,N) %} {% if j%2 == 0 and i%2==0%}
+                        <td class="light">
+                            <input class="form-check-input " type="checkbox" value={{i+j*N}} name="check-square" id={{i+j*N}} />
+                        </td>
+                        {% elif j%2 == 0 and i%2==1%}
+                        <td class="dark">
+                            <input class="form-check-input " type="checkbox" value={{i+j*N}} name="check-square" id={{i+j*N}} />
+
+                        </td>
+                        {% elif j%2 == 1 and i%2==0%}
+                        <td class="dark">
+                            <input class="form-check-input " type="checkbox" value={{i+j*N}} name="check-square" id={{i+j*N}} />
+
+                        </td>
+                        {% elif j%2 == 1 and i%2==1%}
+                        <td class="light">
+                            <input class="form-check-input " type="checkbox" value={{i+j*N}} name="check-square" id={{i+j*N}} />
+
+                        </td>
+                        {% endif %} {% endfor %}
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>{% endblock %}

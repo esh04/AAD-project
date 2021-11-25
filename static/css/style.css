@@ -115,7 +115,9 @@ input[type="radio"]:checked+label.sock {
     padding-left: 10%;
     padding-top: 2%;
     padding-bottom: 2%;
-    background-image: url("./pictures/divide-and-conquer-bg.jpg");
+    /* background-image: url("./pictures/divide-and-conquer-bg.jpg"); */
+    background-image: url("./pictures/bg-snow.png");
+    background-color: white;
     background-size: cover;
     /* background-color: rgb(255, 184, 175); */
     min-height: 100vh;
@@ -123,8 +125,8 @@ input[type="radio"]:checked+label.sock {
 
 .font {
     font-size: 1.2rem;
-    /* color: #46474b; */
-    color: whitesmoke;
+    color: #46474b;
+    /* color: whitesmoke; */
     /* font-family: 'Playfair Display', serif; */
     font-family: 'times new roman', serif;
 }
@@ -133,12 +135,69 @@ input[type="radio"]:checked+label.sock {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 400;
-    /* color: #46474b; */
-    color: whitesmoke;
+    color: #46474b;
+    /* color: whitesmoke; */
 }
 
 @media screen and (max-width: 600px) {
     .game-heading {
         font-size: 2rem;
+    }
+}
+
+.main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #46474b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    /* background-color: #e8e8f0; */
+}
+
+@media screen and (max-width: 600px) {
+    .mainheading {
+        font-size: 2rem;
+    }
+}
+
+.chess-board {
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding-top: 2%;
+}
+
+.chess-board th {
+    padding: .5rem;
+}
+
+.chess-board td {
+    border: 1px solid;
+    width: 4rem;
+    height: 4rem;
+}
+
+.chess-board .light {
+    background: #eee;
+}
+
+.chess-board .dark {
+    background: #000;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .chess-board td {
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
