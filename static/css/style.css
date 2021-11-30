@@ -123,6 +123,21 @@ input[type="radio"]:checked+label.sock {
     min-height: 100vh;
 }
 
+.bg-queens {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    /* background-image: url("./pictures/divide-and-conquer-bg.jpg"); */
+    background-image: url("./pictures/chess.jpeg");
+    background-color: white;
+    background-size: cover;
+    /* make the backroung not relative */
+    background-attachment: fixed;
+    /* background-color: rgb(255, 184, 175); */
+    min-height: 100vh;
+}
+
 .font {
     font-size: 1.2rem;
     color: #46474b;
@@ -156,6 +171,7 @@ input[type="radio"]:checked+label.sock {
     justify-content: center;
     align-self: center;
     min-height: 100vh;
+    /* background-color: #f5f5f5; */
     background-color: #ffffff;
     /* background-color: #e8e8f0; */
 }

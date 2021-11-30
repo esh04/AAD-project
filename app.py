@@ -43,8 +43,8 @@ def divide_and_conquer():
 def n_queens():
   if request.method == "GET":
     hint=''
-    session["N"] = 4
-    # session["N"] = rand_num(6,15)
+    # session["N"] = 4
+    session["N"] = rand_num(6,15)
 
     return render_template("n-queens.html",  text='',hint=hint, N = session["N"])
   elif request.method == "POST":
@@ -68,11 +68,13 @@ def n_queens():
           return render_template("n-queens.html", text=text,hint='', N = session["N"])
 
 
-@app.route("/dynamic-algorithm")
-def dynamic():
-    return render_template("dynamic.html")
+@app.route("/graph-colouring", methods=["GET","POST"])
+def graph():
+    return render_template("graph.html")
 
-
+@app.route("/tower-of-hanoi", methods=["GET","POST"])
+def tower_of_hanoi():
+    return render_template("tower-of-hanoi.html")
 
 if __name__ == '__main__':
   app.run(debug=True)
