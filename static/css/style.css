@@ -150,8 +150,36 @@ input[type="radio"]:checked+label.sock {
     min-height: 100vh;
 }
 
+.bg-info {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: aliceblue !important;
+    /* background-image: url("./pictures/partition.jpeg"); */
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.info-img {
+    /* fix size of image */
+    max-width: 30rem;
+    max-height: auto;
+    margin: 3rem;
+}
+
 .font {
     font-size: 1.2rem;
+    color: #46474b;
+    /* color: whitesmoke; */
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'times new roman', serif;
+}
+
+.font-bold {
+    font-size: 1.3rem;
+    font-weight: bold;
     color: #46474b;
     /* color: whitesmoke; */
     /* font-family: 'Playfair Display', serif; */

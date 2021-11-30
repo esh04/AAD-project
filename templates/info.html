@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="bg-info" style="margin-bottom: auto; margin-top: auto">
+    <div class="col">
+        <form method="GET" action="{{ url_for('home') }}">
+            <button type="submit" class="btn btn-primary ">Back</button>
+        </form>
+    </div>
+    <div class="row mt-2">
+
+        <div class="col middle">
+
+            <p class="game-heading">{{heading}}</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <p class="font">{{text1}}</p>
+    </div>
+    <div class="row">
+        <p class="font">{{text2}}</p>
+    </div>
+
+    <div class="row">
+        <p class="font">{{text3}}</p>
+    </div>
+    <div class="row">
+        <img src="{{image}}" class="img-fluid info-img center">
+    </div>
+    <div class="row">
+        <p class="font">{{text4}}</p>
+    </div>
+    <div class="row">
+        <p class="font">{{text5}}</p>
+    </div>
+    <div class="row">
+        <p class="font">{{text6}}</p>
+    </div>
+    <div class="row">
+        <p class="font">To learn more click <a href={{link}} target="blank_">here</a></p>
+    </div>
+</div>{% endblock %}

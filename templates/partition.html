@@ -11,7 +11,7 @@
 
     </div>
     <div class=" col middle">
-        <p class="font">{{text}}</p>
+        <p class="font-bold">{{text}}</p>
         <div class="row">
             <div class="col">
                 <form method="GET" action="{{ url_for('home') }}">
@@ -38,8 +38,8 @@
 
                     <p class="font">
                         </br>{{hint}}</br>
-                        1) Calculate sum of the array. If sum is odd, there can not be two subsets with equal sum, so return false.</br>2) If sum of array elements is even, calculate sum/2 and find a subset of array with sum equal to sum/2. </br>The first
-                        step is simple. The second step is crucial, it can be solved either using recursion or Dynamic Programming.
+                        1) Calculate sum of all the numbers. Divide the sum by three two know if a solution is possible.</br>2) If sum elements is divisible by 3, calculate sum/3 and find the corresponding subsets equal to it.</br>The first step is simple.
+                        The second step is crucial, it can be solved either using recursion or Dynamic Programming.
                         </br>Click
                         <a href="https://www.geeksforgeeks.org/partition-problem-dp-18/" target="_blank">here</a> to get the approach of a similar problem, but with two partitions.
 
