@@ -138,6 +138,18 @@ input[type="radio"]:checked+label.sock {
     min-height: 100vh;
 }
 
+.bg-partition {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-image: url("./pictures/partition.jpeg");
+    background-size: cover;
+    /* make the backroung not relative */
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
 .font {
     font-size: 1.2rem;
     color: #46474b;
@@ -216,4 +228,9 @@ input[type="radio"]:checked+label.sock {
         width: 1.5rem;
         height: 1.5rem;
     }
+}
+
+.partition {
+    /* give some space in between the radio buttons */
+    margin: 0.1rem;
 }

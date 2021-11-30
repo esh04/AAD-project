@@ -68,9 +68,40 @@ def n_queens():
           return render_template("n-queens.html", text=text,hint='', N = session["N"])
 
 
-@app.route("/graph-colouring", methods=["GET","POST"])
-def graph():
-    return render_template("graph.html")
+@app.route("/partition", methods=["GET","POST"])
+def partition():
+  if request.method == "GET":
+    session["numbers"]=[10,12,4,9,19,17,1,25,3,2,7,8]
+    hint=''
+    return render_template("partition.html",  text='',hint=hint)
+  elif request.method == "POST":
+    if request.form.get('partition1') and request.form.get('partition2') and request.form.get('partition3'):
+      partition1 = request.form.get('partition1').split(',')
+      partition2 = request.form.get('partition2').split(',')
+      partition3 = request.form.get('partition3').split(',')
+      partition1 = set(map(int, partition1))
+      partition2 = set(map(int, partition2))
+      partition3 = set(map(int, partition3))
+      print(partition1, partition2, partition3)
+      allnums = set(session["numbers"])
+      if partition1.issubset(allnums) and partition2.issubset(allnums) and partition3.issubset(allnums):
+            if sum(partition1) == sum(partition2) == sum(partition3):
+                  text = "You are correct!"
+            else:
+                  print(sum(partition1), sum(partition2), sum(partition3))
+                  text = "Sorry, your solution was wrong. Please try again"
+      else:
+            text = "Please give valid input. You have either not chosen numbers from the list or have not comma seprated them."
+
+      return render_template("partition.html", text=text,hint='')
+            
+    elif request.form.get("hint"):
+          hint = "Following are the two main steps to solve this problem:"
+          return render_template("partition.html", text='',hint=hint)
+
+    else:
+          text = "Please partition the numbers."
+          return render_template("partition.html", text=text,hint='')
 
 @app.route("/tower-of-hanoi", methods=["GET","POST"])
 def tower_of_hanoi():

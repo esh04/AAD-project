@@ -1,0 +1,89 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="bg-partition" style="margin-bottom: auto; margin-top: auto">
+    <div class="row mt-2">
+
+        <div class="col middle">
+
+            <p class="game-heading">Three Partition Problem</p>
+            <p class="font">The goal is to partition the given numbers into three sets, such that, the sum of numbers in each set is equal.</br>Write the corresponding numbers in the set list by seperating them with a comma (,).</br>Best of Luck!</p>
+        </div>
+
+    </div>
+    <div class=" col middle">
+        <p class="font">{{text}}</p>
+        <div class="row">
+            <div class="col">
+                <form method="GET" action="{{ url_for('home') }}">
+                    <button type="submit" class="btn btn-primary ">Back</button>
+                </form>
+            </div>
+            <div class="col">
+                <form method="GET" action="{{ url_for('partition') }}">
+                    <button type="submit" class="btn btn-primary ">Restart</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col middle">
+        <form method="POST" action="{{ url_for('partition') }}">
+            <div class="row my-5">
+                <div class="col middle">
+
+                    <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button> {% if hint == '' %}
+                    <button type="submit" name="hint" value="hint" class="btn btn-primary">Hint</button> {% else %}
+                    <button disabled type="submit" name="hint" value="hint" class="btn btn-primary">Hint</button>
+
+                    <p class="font">
+                        </br>{{hint}}</br>
+                        1) Calculate sum of the array. If sum is odd, there can not be two subsets with equal sum, so return false.</br>2) If sum of array elements is even, calculate sum/2 and find a subset of array with sum equal to sum/2. </br>The first
+                        step is simple. The second step is crucial, it can be solved either using recursion or Dynamic Programming.
+                        </br>Click
+                        <a href="https://www.geeksforgeeks.org/partition-problem-dp-18/" target="_blank">here</a> to get the approach of a similar problem, but with two partitions.
+
+                        </br>Click
+                        <a href="https://www.geeksforgeeks.org/dynamic-programming/" target="_blank">here</a> for learning more about Dynamic Programmings.{% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row card-group mt-2 d-flex justify-content-center">
+
+                <div class="row">
+                    {% for number in session["numbers"] %}
+                    <div class="col-sm-4 col-md-3 col-lg-2 my-2 d-flex justify-content-center">
+
+                        <p style="font-size: 3rem; border-width: 0;">{{number}}</p>
+
+
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-4 my-4 d-flex justify-content-center">
+                        <div class="row">
+                            <p class="font">Set 1</p>
+                            <input type="text" name="partition1" class="form-control" placeholder="0" value="{{number1}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 my-4 d-flex justify-content-center">
+                        <div class="row">
+                            <p class="font">Set 2</p>
+                            <input type="text" name="partition2" class="form-control" placeholder="0" value="{{number1}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 my-4 d-flex justify-content-center">
+                        <div class="row">
+                            <p class="font">Set 3</p>
+                            <input type="text" name="partition3" class="form-control" placeholder="0" value="{{number1}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>{% endblock %}
